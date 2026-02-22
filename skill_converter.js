@@ -105,27 +105,17 @@ const skillsByCategory = {
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     initializeSkills();
-    initializeViewCount();
+    initializeViewCountBadge();
 });
 
-async function initializeViewCount() {
-    const viewCountElement = document.getElementById('viewCount');
-    if (!viewCountElement) {
+function initializeViewCountBadge() {
+    const badgeElement = document.getElementById('viewCountBadge');
+    if (!badgeElement) {
         return;
     }
 
-    try {
-        const namespace = 'wjcs-game-web';
-        const key = 'skill-converter-page';
-        const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
-        if (!response.ok) {
-            throw new Error('Counter request failed');
-        }
-        const data = await response.json();
-        viewCountElement.textContent = Number(data.value || 0).toLocaleString('zh-TW');
-    } catch (error) {
-        viewCountElement.textContent = '暫時無法載入';
-    }
+    const pageUrl = encodeURIComponent(window.location.href);
+    badgeElement.src = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=${pageUrl}&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false`;
 }
 
 // 初始化神通按鈕

@@ -323,6 +323,10 @@ h1 {
     margin: 4px 0;
 }
 
+#viewCountBadge {
+    vertical-align: middle;
+}
+
 .color-purple {
     color: #9c27b0;
     font-weight: bold;
