@@ -105,18 +105,7 @@ const skillsByCategory = {
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     initializeSkills();
-    initializeViewCountBadge();
 });
-
-function initializeViewCountBadge() {
-    const badgeElement = document.getElementById('viewCountBadge');
-    if (!badgeElement) {
-        return;
-    }
-
-    const pageUrl = encodeURIComponent(window.location.href);
-    badgeElement.src = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=${pageUrl}&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=views&edge_flat=false`;
-}
 
 // 初始化神通按鈕
 function initializeSkills() {
