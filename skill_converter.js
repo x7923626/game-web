@@ -105,7 +105,28 @@ const skillsByCategory = {
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     initializeSkills();
+    initializeViewCount();
 });
+
+async function initializeViewCount() {
+    const viewCountElement = document.getElementById('viewCount');
+    if (!viewCountElement) {
+        return;
+    }
+
+    try {
+        const namespace = 'wjcs-game-web';
+        const key = 'skill-converter-page';
+        const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+        if (!response.ok) {
+            throw new Error('Counter request failed');
+        }
+        const data = await response.json();
+        viewCountElement.textContent = Number(data.value || 0).toLocaleString('zh-TW');
+    } catch (error) {
+        viewCountElement.textContent = '暫時無法載入';
+    }
+}
 
 // 初始化神通按鈕
 function initializeSkills() {
