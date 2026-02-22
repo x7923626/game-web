@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問劍長生_神通轉化系統</title>
+    <link rel="stylesheet" href="skill_converter.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🗡️ 問劍長生_神通轉化系統</h1>
+        
+        <div class="main-content">
+            <div class="selection-panel">
+                <h2>選擇神通</h2>
+                <div class="skill-categories">
+                    <div class="category" data-column="Fire">
+                        <h3>火系</h3>
+                        <div class="skill-list" id="categoryFire"></div>
+                    </div>
+                    
+                    <div class="category" data-column="C">
+                        <h3>劍系</h3>
+                        <div class="skill-list" id="categoryC"></div>
+                    </div>
+                    
+                    <!-- 神霄系列區塊已刪除 -->
+                    
+                    <div class="category" data-column="Thunder">
+                        <h3>雷系</h3>
+                        <div class="skill-list" id="categoryThunder"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-panel">
+                <div id="resultContainer" class="result-hidden">
+                    <h2>可轉化的神通</h2>
+                    <div class="selected-skill">
+                        <p>已選擇：<span id="selectedSkill"></span></p>
+                    </div>
+                    <div class="arrow">↕ 可互相轉換 ↕</div>
+                    <div id="convertibleSkills" class="convertible-list"></div>
+                </div>
+                
+                <div id="placeholder" class="placeholder">
+                    <p>👆 請選擇一個神通</p>
+                    <p class="hint">同欄位的神通可以互相轉化</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>💡 轉化規則</h3>
+            <ul>
+                <li><span class="color-red">火系</span> 目前版本，最高為反虛期（12招）</li>
+                <li><span class="color-yellow">劍系</span> 目前版本，最高為反虛期（12招）</li>
+                <li><span class="color-purple">雷系</span> 目前版本，最高為反虛期（12招）</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="skill_converter.js"></script>
+</body>
+</html>
