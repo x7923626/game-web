@@ -3,60 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>問劍長生_神通轉化系統</title>
+    <title>問劍長生</title>
     <link rel="stylesheet" href="skill_converter.css">
 </head>
 <body>
     <div class="container">
-        <h1>🗡️ 問劍長生_神通轉化系統</h1>
-        
-        <div class="main-content">
-            <div class="selection-panel">
-                <h2>選擇神通</h2>
-                <div class="skill-categories">
-                    <div class="category" data-column="Fire">
-                        <h3>火系</h3>
-                        <div class="skill-list" id="categoryFire"></div>
+        <h1>🗡️ 問劍長生</h1>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="converter">神通轉換</button>
+            <button class="tab-btn" data-tab="upgrade">升級所需</button>
+        </div>
+
+        <!-- 頁籤一：神通轉換 -->
+        <div id="tab-converter" class="tab-panel active">
+            <div class="main-content">
+                <div class="selection-panel">
+                    <h2>神通轉換</h2>
+                    <div class="skill-categories">
+                        <div class="category" data-column="Fire">
+                            <h3>火系</h3>
+                            <div class="skill-list" id="categoryFire"></div>
+                        </div>
+
+                        <div class="category" data-column="C">
+                            <h3>劍系</h3>
+                            <div class="skill-list" id="categoryC"></div>
+                        </div>
+
+                        <div class="category" data-column="Thunder">
+                            <h3>雷系</h3>
+                            <div class="skill-list" id="categoryThunder"></div>
+                        </div>
                     </div>
-                    
-                    <div class="category" data-column="C">
-                        <h3>劍系</h3>
-                        <div class="skill-list" id="categoryC"></div>
+                </div>
+
+                <div class="result-panel">
+                    <div id="resultContainer" class="result-hidden">
+                        <h2>可轉化的神通</h2>
+                        <div class="selected-skill">
+                            <p>已選擇：<span id="selectedSkill"></span></p>
+                        </div>
+                        <div class="arrow">↕ 可互相轉換 ↕</div>
+                        <div id="convertibleSkills" class="convertible-list"></div>
                     </div>
-                    
-                    <!-- 神霄系列區塊已刪除 -->
-                    
-                    <div class="category" data-column="Thunder">
-                        <h3>雷系</h3>
-                        <div class="skill-list" id="categoryThunder"></div>
+
+                    <div id="placeholder" class="placeholder">
+                        <p>👆 請選擇一個神通</p>
+                        <p class="hint">同欄位的神通可以互相轉化</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="result-panel">
-                <div id="resultContainer" class="result-hidden">
-                    <h2>可轉化的神通</h2>
-                    <div class="selected-skill">
-                        <p>已選擇：<span id="selectedSkill"></span></p>
-                    </div>
-                    <div class="arrow">↕ 可互相轉換 ↕</div>
-                    <div id="convertibleSkills" class="convertible-list"></div>
-                </div>
-                
-                <div id="placeholder" class="placeholder">
-                    <p>👆 請選擇一個神通</p>
-                    <p class="hint">同欄位的神通可以互相轉化</p>
-                </div>
+
+            <div class="info-section">
+                <h3>💡 轉化規則</h3>
+                <ul>
+                    <li><span class="color-red">火系</span> 目前版本，最高為合體期（16招）</li>
+                    <li><span class="color-yellow">劍系</span> 目前版本，最高為合體期（16招）</li>
+                    <li><span class="color-purple">雷系</span> 目前版本，最高為合體期（16招）</li>
+                </ul>
             </div>
         </div>
-        
-        <div class="info-section">
-            <h3>💡 轉化規則</h3>
-            <ul>
-                <li><span class="color-red">火系</span> 目前版本，最高為反虛期（12招）</li>
-                <li><span class="color-yellow">劍系</span> 目前版本，最高為反虛期（12招）</li>
-                <li><span class="color-purple">雷系</span> 目前版本，最高為反虛期（12招）</li>
-            </ul>
+
+        <!-- 頁籤二：升級所需 -->
+        <div id="tab-upgrade" class="tab-panel">
+            <div class="upgrade-section">
+                <h2 class="upgrade-title">⚔️ 選擇六招神通</h2>
+                <p class="upgrade-hint">輸入或點選你想查詢的六招，系統將列出升級所需資源</p>
+
+                <div class="skill-slots">
+                    <div class="skill-slot" data-slot="1">
+                        <div class="slot-label">第 1 招</div>
+                        <div class="slot-input-wrap">
+                            <input type="text" class="slot-input" placeholder="輸入神通名稱..." autocomplete="off">
+                            <div class="slot-dropdown"></div>
+                        </div>
+                        <div class="slot-levels">
+                            <div class="level-picker"><span>目前</span><select class="level-from"><option value="">-</option></select></div>
+                            <div class="level-arrow">→</div>
+                            <div class="level-picker"><span>目標</span><select class="level-to"><option value="">-</option></select></div>
+                        </div>
+                    </div>
+                    <div class="skill-slot" data-slot="2">
+                        <div class="slot-label">第 2 招</div>
+                        <div class="slot-input-wrap">
+                            <input type="text" class="slot-input" placeholder="輸入神通名稱..." autocomplete="off">
+                            <div class="slot-dropdown"></div>
+                        </div>
+                        <div class="slot-levels">
+                            <div class="level-picker"><span>目前</span><select class="level-from"><option value="">-</option></select></div>
+                            <div class="level-arrow">→</div>
+                            <div class="level-picker"><span>目標</span><select class="level-to"><option value="">-</option></select></div>
+                        </div>
+                    </div>
+                    <div class="skill-slot" data-slot="3">
+                        <div class="slot-label">第 3 招</div>
+                        <div class="slot-input-wrap">
+                            <input type="text" class="slot-input" placeholder="輸入神通名稱..." autocomplete="off">
+                            <div class="slot-dropdown"></div>
+                        </div>
+                        <div class="slot-levels">
+                            <div class="level-picker"><span>目前</span><select class="level-from"><option value="">-</option></select></div>
+                            <div class="level-arrow">→</div>
+                            <div class="level-picker"><span>目標</span><select class="level-to"><option value="">-</option></select></div>
+                        </div>
+                    </div>
+                    <div class="skill-slot" data-slot="4">
+                        <div class="slot-label">第 4 招</div>
+                        <div class="slot-input-wrap">
+                            <input type="text" class="slot-input" placeholder="輸入神通名稱..." autocomplete="off">
+                            <div class="slot-dropdown"></div>
+                        </div>
+                        <div class="slot-levels">
+                            <div class="level-picker"><span>目前</span><select class="level-from"><option value="">-</option></select></div>
+                            <div class="level-arrow">→</div>
+                            <div class="level-picker"><span>目標</span><select class="level-to"><option value="">-</option></select></div>
+                        </div>
+                    </div>
+                    <div class="skill-slot" data-slot="5">
+                        <div class="slot-label">第 5 招</div>
+                        <div class="slot-input-wrap">
+                            <input type="text" class="slot-input" placeholder="輸入神通名稱..." autocomplete="off">
+                            <div class="slot-dropdown"></div>
+                        </div>
+                        <div class="slot-levels">
+                            <div class="level-picker"><span>目前</span><select class="level-from"><option value="">-</option></select></div>
+                            <div class="level-arrow">→</div>
+                            <div class="level-picker"><span>目標</span><select class="level-to"><option value="">-</option></select></div>
+                        </div>
+                    </div>
+                    <div class="skill-slot" data-slot="6">
+                        <div class="slot-label">第 6 招</div>
+                        <div class="slot-input-wrap">
+                            <input type="text" class="slot-input" placeholder="輸入神通名稱..." autocomplete="off">
+                            <div class="slot-dropdown"></div>
+                        </div>
+                        <div class="slot-levels">
+                            <div class="level-picker"><span>目前</span><select class="level-from"><option value="">-</option></select></div>
+                            <div class="level-arrow">→</div>
+                            <div class="level-picker"><span>目標</span><select class="level-to"><option value="">-</option></select></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upgrade-actions">
+                    <button id="btnCalcUpgrade" class="calc-btn">📊 查詢升級所需</button>
+                    <button id="btnClearSlots" class="clear-btn">🗑️ 清除</button>
+                </div>
+
+                <div id="upgradeResult" class="upgrade-result upgrade-result-hidden">
+                    <p style="text-align:center;color:#999;font-size:1.1rem;">⚙️ 升級費用資料建置中，敬請期待</p>
+                </div>
+            </div>
         </div>
 
     </div>
