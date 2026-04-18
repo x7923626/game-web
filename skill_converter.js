@@ -145,14 +145,14 @@ const upgradeCostData = {
 };
 
 function getSkillUpgradeType(skill) {
-    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・')) return 'witch';
-    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・')) return 'demon';
+    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・') || skill.startsWith('蠱靈・')) return 'witch';
+    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・') || skill.startsWith('煞海・')) return 'demon';
     return 'normal';
 }
 
 function getUpgradeTypeName(skill) {
-    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・')) return '魔族';
-    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・')) return '巫族';
+    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・') || skill.startsWith('煞海・')) return '魔族';
+    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・') || skill.startsWith('蠱靈・')) return '巫族';
     return '一般';
 }
 
@@ -187,7 +187,10 @@ const skillsByCategory = {
         '神霄・雲籙', '神霄・天鼓', '神霄・驅雷', '神霄・青索',
         '青冥・鬥辰', '青冥・天怒', '青冥・崩雲', '青冥・嵐霆'
     ],
-    '百族': []
+    '百族': [
+        '蠱靈・祭律', '蠱靈・蛻蛇', '蠱靈・驚蟬', '蠱靈・幽蝕',
+        '煞海・裂天', '煞海・烈雨', '煞海・業蓮', '煞海・冥火'
+    ]
 };
 
 // 初始化
@@ -260,6 +263,7 @@ function getSkillClass(skill) {
     if (skill.startsWith('熒惑・') || skill.startsWith('離火・') || skill.startsWith('天爐・') || skill.startsWith('烈山・')) return 'fire';
     if (skill.startsWith('斬虛・') || skill.startsWith('伏龍・') || skill.startsWith('重光・') || skill.startsWith('鈞天・')) return 'sword';
     if (skill.startsWith('玉樞・') || skill.startsWith('五雷・') || skill.startsWith('神霄・') || skill.startsWith('青冥・')) return 'thunder';
+    if (skill.startsWith('蠱靈・') || skill.startsWith('煞海・')) return 'hundred';
     return '';
 }
 
@@ -494,10 +498,10 @@ function selectSkill(skill) {
 
 // 族別顯示標籤（僅影響顯示，不影響資料 key）
 function getSkillDisplayName(skill) {
-    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・')) {
+    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・') || skill.startsWith('煞海・')) {
         return skill + '(魔)';
     }
-    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・')) {
+    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・') || skill.startsWith('蠱靈・')) {
         return skill + '(巫)';
     }
     return skill;

@@ -112,7 +112,8 @@ h1 {
 
 .skill-slot.filled-fire  { border-color: #e53935; box-shadow: 0 0 0 3px rgba(229,57,53,0.15); }
 .skill-slot.filled-sword { border-color: #fbc02d; box-shadow: 0 0 0 3px rgba(251,192,45,0.15); }
-.skill-slot.filled-thunder { border-color: #8e24aa; box-shadow: 0 0 0 3px rgba(142,36,170,0.15); }
+.skill-slot.filled-thunder  { border-color: #8e24aa; box-shadow: 0 0 0 3px rgba(142,36,170,0.15); }
+.skill-slot.filled-hundred  { border-color: #1565c0; box-shadow: 0 0 0 3px rgba(21,101,192,0.15); }
 
 .slot-label {
     font-size: 0.85rem;
@@ -171,9 +172,10 @@ h1 {
 
 .dropdown-item:last-child { border-bottom: none; }
 .dropdown-item:hover { background: #f0f3ff; }
-.dropdown-item.fire   { color: #d32f2f; }
-.dropdown-item.sword  { color: #f9a825; }
+.dropdown-item.fire    { color: #d32f2f; }
+.dropdown-item.sword   { color: #f9a825; }
 .dropdown-item.thunder { color: #7b1fa2; }
+.dropdown-item.hundred { color: #1565c0; }
 
 /* 等級選擇列 */
 .slot-levels {
