@@ -452,7 +452,8 @@ function initializeSkills() {
     Object.keys(skillsByCategory).forEach(category => {
         const containerId = category === '劍系' ? 'categoryC' :
                            category === '火系' ? 'categoryFire' :
-                           category === '雷系' ? 'categoryThunder' : 'categoryOther';
+                           category === '雷系' ? 'categoryThunder' :
+                           category === '百族' ? 'categoryHundred' : 'categoryOther';
         const container = document.getElementById(containerId);
         if (container && skillsByCategory[category].length > 0) {
             skillsByCategory[category].forEach(skill => {

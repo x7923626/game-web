@@ -745,6 +745,11 @@ h1 {
     border-color: #7b1fa2;
 }
 
+.category[data-column="Hundred"] h3 {
+    color: #1565c0;
+    border-color: #1565c0;
+}
+
 .category[data-column="E"] h3 {
     color: #2196f3;
     border-color: #2196f3;
@@ -797,6 +802,10 @@ h1 {
 
 .category[data-column="Thunder"] .skill-button {
     background: linear-gradient(135deg, #8e24aa 0%, #6a1b9a 100%);
+}
+
+.category[data-column="Hundred"] .skill-button {
+    background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
 }
 
 .category[data-column="E"] .skill-button {
