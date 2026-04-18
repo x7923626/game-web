@@ -171,11 +171,26 @@ const upgradeCostData = {
         { to: '10階(天1)',本體: 200, 仙品: 560, 極品: 900,  上品: 2200 },
         { to: '11階(天2)',本體: 240, 仙品: 640, 極品: 1000, 上品: 2500 },
         { to: '12階(天3)',本體: 280, 仙品: 720, 極品: 1200, 上品: 2800 },
+    ],
+    // 百族巫族技能（蠱靈・）：最高天3（共11步，由累計數反推）
+    hundred_witch: [
+        { to: '2階(1星)',  本體: 0,   仙品: 160, 極品: 100,  上品: 300  },
+        { to: '3階(2星)',  本體: 0,   仙品: 160, 極品: 150,  上品: 350  },
+        { to: '4階(玄1)', 本體: 40,  仙品: 200, 極品: 250,  上品: 600  },
+        { to: '5階(玄2)', 本體: 80,  仙品: 200, 極品: 300,  上品: 800  },
+        { to: '6階(玄3)', 本體: 80,  仙品: 280, 極品: 450,  上品: 1100 },
+        { to: '7階(地1)', 本體: 80,  仙品: 360, 極品: 500,  上品: 1300 },
+        { to: '8階(地2)', 本體: 120, 仙品: 440, 極品: 600,  上品: 1600 },
+        { to: '9階(地3)', 本體: 160, 仙品: 520, 極品: 750,  上品: 1900 },
+        { to: '10階(天1)',本體: 200, 仙品: 600, 極品: 900,  上品: 2200 },
+        { to: '11階(天2)',本體: 240, 仙品: 680, 極品: 1000, 上品: 2500 },
+        { to: '12階(天3)',本體: 280, 仙品: 760, 極品: 1200, 上品: 2800 },
     ]
 };
 
 function getSkillUpgradeType(skill) {
-    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・') || skill.startsWith('蠱靈・')) return 'witch';
+    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・')) return 'witch';
+    if (skill.startsWith('蠱靈・')) return 'hundred_witch';
     if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・')) return 'demon';
     if (skill.startsWith('煞海・')) return 'hundred_demon';
     return 'normal';
@@ -191,6 +206,7 @@ function getUpgradeTypeName(skill) {
 
 function getUpgradeMaxLevel(skill) {
     return (getSkillUpgradeType(skill) === 'witch') ? '天5' : '天3';
+    // hundred_witch 目前最高天3，待有截圖後可擴充至天5
 }
 
 const skillSourceMap = sourceGroups.reduce((map, group) => {
@@ -249,7 +265,10 @@ function initializeTabs() {
 const allLevelNames = ['1星','2星','3星','玄1','玄2','玄3','地1','地2','地3','天1','天2','天3','天4','天5'];
 
 function getMaxLevelIndex(skill) {
-    return getSkillUpgradeType(skill) === 'witch' ? 13 : 11;
+    const type = getSkillUpgradeType(skill);
+    if (type === 'witch') return 13;      // 巫族：最高天5
+    if (type === 'hundred_witch') return 11; // 百族巫：目前最高天3
+    return 11;
 }
 
 function calcCostBetween(skill, fromIdx, toIdx) {
