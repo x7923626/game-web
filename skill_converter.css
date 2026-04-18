@@ -693,6 +693,36 @@ h1 {
     font-size: 1.2rem;
     border-bottom: 2px solid #667eea;
     padding-bottom: 5px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category h3::after {
+    content: '▲';
+    font-size: 0.75rem;
+    transition: transform 0.25s;
+    opacity: 0.6;
+}
+
+.category.collapsed h3::after {
+    transform: rotate(180deg);
+}
+
+.category .skill-list {
+    transition: none;
+    overflow: hidden;
+}
+
+.category.collapsed .skill-list {
+    display: none;
+}
+
+.category.collapsed h3 {
+    margin-bottom: 0;
+    border-bottom-color: transparent;
 }
 
 .category[data-column="A"] h3 {

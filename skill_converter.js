@@ -450,7 +450,7 @@ function renderDropdown(dropdown, skills, input, slot) {
 // 初始化神通按鈕
 function initializeSkills() {
     Object.keys(skillsByCategory).forEach(category => {
-        const containerId = category === '劍系' ? 'categoryC' : 
+        const containerId = category === '劍系' ? 'categoryC' :
                            category === '火系' ? 'categoryFire' :
                            category === '雷系' ? 'categoryThunder' : 'categoryOther';
         const container = document.getElementById(containerId);
@@ -463,6 +463,15 @@ function initializeSkills() {
                 container.appendChild(button);
             });
         }
+    });
+
+    // 預設全部收起，點標題切換展開/收起
+    document.querySelectorAll('.skill-categories .category').forEach(cat => {
+        cat.classList.add('collapsed');
+        const h3 = cat.querySelector('h3');
+        h3.addEventListener('click', () => {
+            cat.classList.toggle('collapsed');
+        });
     });
 }
 
