@@ -103,7 +103,7 @@ const sourceGroups = [
         ]
     },
     {
-        source: '百族轉換',
+        source: '道蘊兌換(百族)',
         skills: [
             '蠱靈・祭律', '蠱靈・蛻蛇', '蠱靈・驚蟬', '蠱靈・幽蝕',
             '煞海・裂天', '煞海・烈雨', '煞海・業蓮', '煞海・冥火'
@@ -565,6 +565,9 @@ function getSourceClass(source) {
     }
     if (source === '宗門寶庫') {
         return 'source-sect-treasure';
+    }
+    if (source === '道蘊兌換(百族)') {
+        return 'source-hundred';
     }
     return '';
 }

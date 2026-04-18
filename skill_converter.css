@@ -921,6 +921,11 @@ h1 {
     color: #5d4037;
 }
 
+.skill-source.source-hundred {
+    color: #1565c0;
+    font-weight: 600;
+}
+
 .skill-name {
     font-weight: 600;
 }
