@@ -157,18 +157,35 @@ const upgradeCostData = {
         { to: '12階(天3)',本體: 280, 仙品: 520, 極品: 1000, 上品: 2400 },
         { to: '13階(天4)',本體: 320, 仙品: 600, 極品: 1000, 上品: 2400 },
         { to: '14階(天5)',本體: 360, 仙品: 680, 極品: 1000, 上品: 2400 },
+    ],
+    // 百族魔族技能（煞海・）：最高天3（共11步，由累計數反推）
+    hundred_demon: [
+        { to: '2階(1星)',  本體: 0,   仙品: 120, 極品: 100,  上品: 300  },
+        { to: '3階(2星)',  本體: 0,   仙品: 120, 極品: 150,  上品: 350  },
+        { to: '4階(玄1)', 本體: 40,  仙品: 160, 極品: 250,  上品: 600  },
+        { to: '5階(玄2)', 本體: 80,  仙品: 160, 極品: 300,  上品: 800  },
+        { to: '6階(玄3)', 本體: 80,  仙品: 240, 極品: 450,  上品: 1100 },
+        { to: '7階(地1)', 本體: 80,  仙品: 320, 極品: 500,  上品: 1300 },
+        { to: '8階(地2)', 本體: 120, 仙品: 400, 極品: 600,  上品: 1600 },
+        { to: '9階(地3)', 本體: 160, 仙品: 480, 極品: 750,  上品: 1900 },
+        { to: '10階(天1)',本體: 200, 仙品: 560, 極品: 900,  上品: 2200 },
+        { to: '11階(天2)',本體: 240, 仙品: 640, 極品: 1000, 上品: 2500 },
+        { to: '12階(天3)',本體: 280, 仙品: 720, 極品: 1200, 上品: 2800 },
     ]
 };
 
 function getSkillUpgradeType(skill) {
     if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・') || skill.startsWith('蠱靈・')) return 'witch';
-    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・') || skill.startsWith('煞海・')) return 'demon';
+    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・')) return 'demon';
+    if (skill.startsWith('煞海・')) return 'hundred_demon';
     return 'normal';
 }
 
 function getUpgradeTypeName(skill) {
-    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・') || skill.startsWith('煞海・')) return '魔族';
-    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・') || skill.startsWith('蠱靈・')) return '巫族';
+    if (skill.startsWith('斬虛・') || skill.startsWith('熒惑・') || skill.startsWith('玉樞・')) return '魔族';
+    if (skill.startsWith('煞海・')) return '百族魔';
+    if (skill.startsWith('鈞天・') || skill.startsWith('烈山・') || skill.startsWith('青冥・')) return '巫族';
+    if (skill.startsWith('蠱靈・')) return '百族巫';
     return '一般';
 }
 
